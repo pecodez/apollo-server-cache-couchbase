@@ -1,0 +1,38 @@
+{
+  "name": "apollo-server-cache-couchbase",
+  "version": "0.0.1",
+  "description": "Couchbase cache for Apollo Server GraphQL",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BitShredder/apollo-server-cache-couchbase.git"
+  },
+  "keywords": [
+    "couchbase",
+    "apollo",
+    "apollo-server",
+    "graphql",
+    "cache"
+  ],
+  "author": "Phil Ewington",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BitShredder/apollo-server-cache-couchbase/issues"
+  },
+  "homepage": "https://github.com/BitShredder/apollo-server-cache-couchbase#readme",
+  "dependencies": {
+    "@types/graphql": "^14.0.6",
+    "apollo-server": "^2.4.0",
+    "couchbase": "^2.6.3",
+    "dataloader": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/couchbase": "^2.4.1",
+    "@types/node": "^11.9.3",
+    "nodemon": "^1.18.10",
+    "typescript": "^3.3.3"
+  }
+}

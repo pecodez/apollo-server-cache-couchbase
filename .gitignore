@@ -1,0 +1,19 @@
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.vscode
+.history
+
+# Build env
+build/
+
+# node packages
+node_modules/
+.npm
+
+# Optional eslint cache
+.eslintcache
