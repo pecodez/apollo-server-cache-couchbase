@@ -1,5 +1,5 @@
 import { KeyValueCache } from 'apollo-server-caching';
-import couchbase, { PasswordAuthenticator } from 'couchbase';
+import couchbase, { PasswordAuthenticator, CouchbaseError } from 'couchbase';
 import { promisify } from 'util';
 import DataLoader from 'dataloader';
 
@@ -17,7 +17,7 @@ export type CouchbaseCacheConnectionDetails = {
     }
 }
 
-export class CouchbaseCache implements KeyValueCache {
+export default class CouchbaseCache implements KeyValueCache {
 
 	readonly bucket: any;
 	readonly manager: any;
@@ -33,8 +33,11 @@ export class CouchbaseCache implements KeyValueCache {
         const auth: couchbase.PasswordAuthenticator = new PasswordAuthenticator(
             connDetails.auth.username,
             connDetails.auth.password
-        );
+		);
+		
 		const cluster: couchbase.Cluster = new couchbase.Cluster(connDetails.host);
+		cluster.authenticate(connDetails.auth);
+
 		const bucket: couchbase.Bucket = cluster.openBucket(connDetails.bucket);
 		const manager: couchbase.BucketManager = bucket.manager();
 
@@ -46,6 +49,14 @@ export class CouchbaseCache implements KeyValueCache {
 
 		this.bucket = bucket;
 		this.manager = manager;
+
+		this.bucket.on('connect', () => {
+			console.log('CouchbaseCache connected');
+		});
+
+		this.bucket.on('error', (err: CouchbaseError) => {
+			console.log(err);
+		});
 		
 		this.loader = new DataLoader((keys: string[]) => {
 			return this.bucket.getMulti(keys);
