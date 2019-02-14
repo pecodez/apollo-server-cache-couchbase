@@ -1,2 +1,2 @@
 # apollo-server-cache-couchbase
-Couchbase cache for Apollo Server GraphQL
+Couchbase implementation for Apollo Server REST Datasource cache
