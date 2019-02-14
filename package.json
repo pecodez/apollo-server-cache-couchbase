@@ -32,6 +32,7 @@
   "devDependencies": {
     "@types/couchbase": "^2.4.1",
     "@types/node": "^11.9.3",
+    "eslint": "^5.13.0",
     "nodemon": "^1.18.10",
     "typescript": "^3.3.3"
   }
