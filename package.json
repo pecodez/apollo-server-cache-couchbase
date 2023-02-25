@@ -26,7 +26,7 @@
   "dependencies": {
     "@types/graphql": "^14.0.6",
     "apollo-server": "^3.4.1",
-    "couchbase": "^3.2.5",
+    "couchbase": "^3.2.6",
     "dataloader": "^1.4.0"
   },
   "devDependencies": {
