@@ -25,7 +25,8 @@
   "homepage": "https://github.com/BitShredder/apollo-server-cache-couchbase#readme",
   "dependencies": {
     "@types/graphql": "^14.2.3",
-    "apollo-server": "^3.4.1",
+    "@types/graphql": "^14.0.6",
+    "apollo-server": "^3.11.1",
     "couchbase": "^3.2.5",
     "dataloader": "^1.4.0"
   },
